@@ -1,0 +1,29 @@
+.contact_form {
+  display: flex;
+  flex-direction: column;
+}
+.contact_form_input {
+  margin-bottom: 20px;
+}
+.contact_form_input_label {
+  margin-bottom: 20px;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.contact_form_button {
+  width: 200px;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background-color: lightslategrey;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 500;
+}
+.contact_form_button:hover,
+.contact_form_button:focus {
+  background-color: #0000ff;
+}
