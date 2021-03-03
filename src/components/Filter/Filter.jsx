@@ -37,8 +37,8 @@ const Filter = ({ filter, contacts, setFilter }) => {
   );
 };
 Filter.propTypes = {
-  filter: PropTypes.string,
-  contacts: PropTypes.arrayOf(PropTypes.object),
-  setFilter: PropTypes.func,
+  filter: PropTypes.string.isRequired,
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setFilter: PropTypes.func.isRequired,
 };
 export default Filter;
