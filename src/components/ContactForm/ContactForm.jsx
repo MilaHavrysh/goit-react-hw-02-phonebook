@@ -23,8 +23,10 @@ const ContactForm = ({ onSubmit }) => {
   const inputChange = e => {
     if (e.target.attributes.id.nodeValue === 'name') {
       setName(e.target.value);
+      console.log(name);
     } else if (e.target.attributes.id.nodeValue === 'number') {
       setNumber(e.target.value);
+      console.log(number);
     }
   };
   return (

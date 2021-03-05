@@ -18,8 +18,10 @@ input {
   height: 40px;
   border: 4px solid #000000;
   border-radius: 8px;
+  outline: none;
 }
 input:hover,
-input:focus {
-  border-color: #0000ff;
+input:focus,
+input:active {
+  border: 4px solid #0000ff;
 }

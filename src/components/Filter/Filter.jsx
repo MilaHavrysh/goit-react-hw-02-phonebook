@@ -1,21 +1,6 @@
-import React, { useState } from 'react';
-import styles from './Filter.module.css';
 import PropTypes from 'prop-types';
 
-const Filter = ({ filter, contacts, setFilter }) => {
-  const [foundContact, setfoundContact] = useState([]);
-
-  const searchContact = e => {
-    setFilter(e.target.value);
-    let requiredEl = contacts.filter(element =>
-      element.name.toLowerCase().includes(filter.toLowerCase()),
-    );
-    setfoundContact(requiredEl);
-    if (e.target.value === '') {
-      setfoundContact([]);
-    }
-  };
-
+const Filter = ({ onFilterContact, filter }) => {
   return (
     <>
       <h2>find contacts by name</h2>
@@ -23,22 +8,15 @@ const Filter = ({ filter, contacts, setFilter }) => {
         type="text"
         name="filter"
         autoComplete="off"
-        onInput={searchContact}
+        onChange={onFilterContact}
+        value={filter}
       />
-      <ul className={styles.filter_list}>
-        {foundContact.map(item => (
-          <li key={item.id} className={styles.filter_list_item}>
-            <p className={styles.filter_list_item_name}>{item.name}</p>
-            <p className={styles.filter_list_item_number}>{item.number}</p>
-          </li>
-        ))}
-      </ul>
     </>
   );
 };
 Filter.propTypes = {
   filter: PropTypes.string.isRequired,
-  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  setFilter: PropTypes.func.isRequired,
+  onFilterContact: PropTypes.func,
 };
+
 export default Filter;

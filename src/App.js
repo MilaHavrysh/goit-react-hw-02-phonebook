@@ -13,6 +13,10 @@ const App = () => {
   ]);
   const [filter, setFilter] = useState('');
 
+  const filterContact = e => {
+    setFilter(e.target.value.toLowerCase());
+  };
+
   const deleteContact = id => {
     setContacts(prevState => prevState.filter(contact => contact.id !== id));
   };
@@ -26,13 +30,24 @@ const App = () => {
       : alert(`${newName.name} уже есть в книге`);
   };
 
+  const createContactList = () => {
+    let requiredElement = contacts.filter(element =>
+      element.name.toLowerCase().includes(filter),
+    );
+
+    return requiredElement;
+  };
+
   return (
     <>
       <h1>phonebook</h1>
       <ContactForm onSubmit={submit} />
       <h2>Contacts</h2>
-      <ContactList contacts={contacts} onDeleteContact={deleteContact} />
-      <Filter filter={filter} setFilter={setFilter} contacts={contacts} />
+      <Filter onFilterContact={filterContact} filter={filter} />
+      <ContactList
+        contacts={createContactList()}
+        onDeleteContact={deleteContact}
+      />
     </>
   );
 };
